@@ -48,4 +48,12 @@ export class CasesController {
     res.send(currentCase);
   }
 
+  deleteCaseById = async (req: Request, res: Response) => {const id = req.params.id;
+    const currentCase = await CasesModel.findById(id);
+    if (!currentCase) return res.status(404).send(`No incident found with the given id: ${id}`)
+  
+    await CasesModel.findByIdAndDelete(id);
+    res.send(currentCase);    
+  }
+
 }
