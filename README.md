@@ -1,1 +1,1 @@
-# monkeyprox-api
+# monkeypox-api

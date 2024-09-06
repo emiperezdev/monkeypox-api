@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  # monkeyprox-api:
-  #   image: emiperezdev/monkeyprox-api:latest
-  #   container_name: monkeyprox-api
+  # monkeypox-api:
+  #   image: emiperezdev/monkeypox-api:latest
+  #   container_name: monkeypox-api
   #   environment: 
   #     PORT: ${PORT}
   #     MONGO_URL: ${MONGO_URL_DOCKER}
@@ -19,7 +19,7 @@ services:
 
   mongo: 
     image: mongo
-    container_name: mongo-monkeyprox
+    container_name: mongo-monkeypox
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
