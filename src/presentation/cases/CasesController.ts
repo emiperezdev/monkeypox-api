@@ -18,6 +18,17 @@ export class CasesController {
     return foundCase;
   } 
 
-
+  saveCase = async (req: Request, res: Response) => {
+    console.log('body', req.body);
+    const { genre, age, lat, lng } = req.body;
+    const newCase = await CasesModel.create({
+      age: age,
+      genre: genre,
+      lat: lat,
+      lng: lng,
+    });
+  
+    return res.status(201).send(newCase);
+  }
 
 }

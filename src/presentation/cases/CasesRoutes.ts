@@ -9,6 +9,7 @@ export class CasesRoutes {
 
     router.get('', casesController.getCases);
     router.get('/:id', casesController.getCaseById);
+    router.post('', casesController.saveCase);
 
     return router;
   }
