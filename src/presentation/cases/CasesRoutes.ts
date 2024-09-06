@@ -8,6 +8,7 @@ export class CasesRoutes {
     const casesController = new CasesController();
 
     router.get('', casesController.getCases);
+    router.get('/:id', casesController.getCaseById);
 
     return router;
   }
