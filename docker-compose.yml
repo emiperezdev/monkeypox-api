@@ -19,7 +19,7 @@ services:
 
   mongo: 
     image: mongo
-    container_name: mongo
+    container_name: mongo-monkeyprox
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
