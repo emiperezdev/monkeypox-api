@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { CasesModel } from "../../data/models/cases.model";
+import { Agent } from "http";
 
 
 export class CasesController {
@@ -29,6 +30,22 @@ export class CasesController {
     });
   
     return res.status(201).send(newCase);
+  }
+
+  updateCaseById = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const { genre, age, lat, lng } = req.body;
+    let currentCase = await CasesModel.findById(id);
+    if (!currentCase) return res.status(404).send(`No case found with the given id: ${id}`)
+  
+      currentCase = await CasesModel.findByIdAndUpdate(id, {
+      genre: genre,
+      age: age,
+      lat: lat,
+      lng: lng
+    }, { new: true });
+  
+    res.send(currentCase);
   }
 
 }
