@@ -67,8 +67,8 @@ export function generateCaseEmailTemplate(
               <h1>Detalles del Caso</h1>
           </div>
           <div class="content">
-              <p><strong>Genero del caso:</strong> ${genre}</p>
-              <p><strong>Edad del caso:</strong> ${age}</p>
+              <p><strong>Genero:</strong> ${genre}</p>
+              <p><strong>Edad:</strong> ${age}</p>
               <p><strong>Latitud:</strong> ${lat}</p>
               <p><strong>Longitud:</strong> ${lng}</p>
           </div>

@@ -27,7 +27,7 @@ export const emailJob = () => {
         );
         await emailService.sendEmail({
           to: "emiperez.dev@gmail.com",
-          subject: `Case: {case._id}`,
+          subject: `Case: ${c._id}`,
           htmlBody: htmlBody,
         });
         const id = c._id;
