@@ -9,11 +9,11 @@ export class CasesController {
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7); 
   
-    const incidents = await CasesModel.find({
+    const cases = await CasesModel.find({
       creationDate: { $gte: sevenDaysAgo }, 
     });
     
-    res.send(incidents);
+    res.send(cases);
   }
 
   getCaseById = async (req: Request, res: Response) => {
@@ -22,7 +22,7 @@ export class CasesController {
     const foundCase = await CasesModel.findById(id);
     if (!foundCase) return res.status(404).send(`No case found with the given id: ` + id);
 
-    return foundCase;
+    return res.send(foundCase);
   } 
 
   saveCase = async (req: Request, res: Response) => {
@@ -56,7 +56,7 @@ export class CasesController {
 
   deleteCaseById = async (req: Request, res: Response) => {const id = req.params.id;
     const currentCase = await CasesModel.findById(id);
-    if (!currentCase) return res.status(404).send(`No incident found with the given id: ${id}`)
+    if (!currentCase) return res.status(404).send(`No case found with the given id: ${id}`)
   
     await CasesModel.findByIdAndDelete(id);
     res.send(currentCase);    
