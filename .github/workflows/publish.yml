@@ -17,13 +17,13 @@ jobs:
         run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
       
       - name: Build Docker Image
-        run: docker build -t emiperezdev/incident-api:${{ github.sha }} .
+        run: docker build -t emiperezdev/monkeypox-api:${{ github.sha }} .
 
       - name: Tag Latest
-        run: docker tag emiperezdev/incident-api:${{ github.sha }} emiperezdev/incident-api:latest
+        run: docker tag emiperezdev/monkeypox-api:${{ github.sha }} emiperezdev/monkeypox-api:latest
 
 
       - name: Push Docker Image
         run: |
-          docker push emiperezdev/incident-api:${{ github.sha }}
-          docker push emiperezdev/incident-api:latest
+          docker push emiperezdev/monkeypox-api:${{ github.sha }}
+          docker push emiperezdev/monkeypox-api:latest
