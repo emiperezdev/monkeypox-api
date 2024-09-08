@@ -1,8 +1,8 @@
 import { envs } from "../config/envs";
 
-export function generateIncidentEmailTemplate(
-  title: string,
-  description: string,
+export function generateCaseEmailTemplate(
+  age: number,
+  genre: string,
   lat: number,
   lng: number
 ): string {
@@ -13,7 +13,7 @@ export function generateIncidentEmailTemplate(
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Detalles del Incidente</title>
+      <title>Detalles del Caso</title>
       <style>
           body {
               font-family: Arial, sans-serif;
@@ -64,11 +64,11 @@ export function generateIncidentEmailTemplate(
   <body>
       <div class="container">
           <div class="header">
-              <h1>Detalles del Incidente</h1>
+              <h1>Detalles del Caso</h1>
           </div>
           <div class="content">
-              <p><strong>Título del Incidente:</strong> ${title}</p>
-              <p><strong>Descripcion del Incidente:</strong> ${description}</p>
+              <p><strong>Genero del caso:</strong> ${generateMapboxStaticImageURL}</p>
+              <p><strong>Edad del caso:</strong> ${age}</p>
               <p><strong>Latitud:</strong> ${lat}</p>
               <p><strong>Longitud:</strong> ${lng}</p>
           </div>
