@@ -6,8 +6,14 @@ import { Agent } from "http";
 export class CasesController {
 
   getCases = async (req: Request, res: Response) => {
-    const cases = await CasesModel.find();
-    res.send(cases);
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7); 
+  
+    const incidents = await CasesModel.find({
+      creationDate: { $gte: sevenDaysAgo }, 
+    });
+    
+    res.send(incidents);
   }
 
   getCaseById = async (req: Request, res: Response) => {
