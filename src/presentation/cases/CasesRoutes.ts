@@ -10,6 +10,7 @@ export class CasesRoutes {
     const casesController = new CasesController();
 
     router.get('', casesController.getCases);
+    router.get('/last-seven-days', casesController.getCasesLast7Days);
     router.get('/:id', validateId, casesController.getCaseById);
     router.post('', validateBody(casesSchema), casesController.saveCase); 
     router.put('/:id', validateId, validateBody(casesSchema), casesController.updateCaseById);
